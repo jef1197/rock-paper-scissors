@@ -33,10 +33,10 @@ function playRound(playerPick, computerPick) {
                 case "scissors":
                     if (computerPick.toLowerCase() === "rock") {
                         computerScore += 1;
-                        return (`You Lose - Rock Beats Paper.`);
+                        return (`You Lose - Scissors Beats Paper.`);
                     } else if (computerPick.toLowerCase() === "paper") {
                         playerScore += 1;
-                        return (`You Win Scissors Beats Paper.`);
+                        return (`You Win - Scissors Beats Paper.`);
                     } else if (computerPick.toLowerCase() === "scissors") {
                         return (`Tie Game.`);
                     } else {
@@ -106,7 +106,7 @@ rock.addEventListener('click', () => {
 
 let paper = document.querySelector('#paper');
 paper.addEventListener('click', () => {
-    game("rock");
+    game("paper");
 })
 
 let scissors = document.querySelector('#scissors');
