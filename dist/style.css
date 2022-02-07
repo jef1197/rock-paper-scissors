@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightcyan;
+}
+h1,h2 {
+    text-align: center;
+}
+
+header {
+    height: 20vh;
+}
+
+main {
+    text-align: center;
+    height: 60vh;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+button #rock{
+    max-width: 120px;
+}
+
+button #paper{
+    min-width: 100px;
+}
+
+button #scissors{
+    min-width: 100px;
+}
+
+button:focus{
+    background-color: lightblue;
+}
+
+.activeBtn{
+    background-color: lightblue;
+}
+
+.footer {
+    background-color: lightcyan !important;
+    text-align: center;
+    height: 20vh;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.howToPlay{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}

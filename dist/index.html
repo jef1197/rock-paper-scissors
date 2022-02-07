@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html class="is-clipped">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rock Paper Scissors</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bulma.css">
+    <script src="https://kit.fontawesome.com/458e0ca58d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a class="js-modal-trigger howToPlay" data-target="modal-js-example">
+        <i class="fas fa-info-circle"></i>
+        Help
+    </a>
+    <header class="pt-5">
+        <h1 class="title is-1 is-spaced">Rock Paper Scissors</h1>
+        <h2 class="subtitle is-4" id="round">Round 0</h2>
+    </header>
+
+    <main class="section is-medium">
+        <section class="columns">
+            <div class="column">
+                <h4 class="title">Player</h4>
+                <div class="columns is-mobile">
+                    <a class="column is-one-third userPick " id="rock"> <img src="img/rock.png" alt="rock"/> </a>
+                    <a class="column is-one-quarter userPick" id="paper"> <img src="img/paper.png" alt="paper"/> </a>
+                    <a class="column is-4 userPick" id="scissors"> <img src="img/scissors.png" alt="scissors"/> </a>
+                </div>
+            </div>
+
+            <div class="column">
+                <h1 class="title is-3" id="matchFeed">
+                    Match Start
+                </h1>
+                <h2 class="subtitle is-1" id="score"> 0 - 0</h2>
+            </div>
+    
+            <div class="column">
+                <h4 class="title">Cpu</h4>
+                <div class="columns is-mobile">
+                    <a class="column is-one-third disabled cpuPick" id="cpuRock" disabled> <img src="img/rock.png" alt="rock"/> </a>
+                    <a class="column is-one-quarter disabled cpuPick" id="cpuPaper" disabled> <img src="img/paper.png" alt="paper"/> </a>
+                    <a class="column is-4 disabled cpuPick" id="cpuScissors" disabled> <img src="img/scissors.png" alt="scissors"/> </a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">How To Play </p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body content mb-0">
+                <h1  class="title is-4">Rock - Paper - Scissors</h1>
+                <p class="subtitle">The rules are very simple:</p>
+                <ul>
+                    <li>If you choose Rock, you will win against Scissors but lose against Paper.</li>
+                    <li>If you choose Scissors, you will win against Paper but lose against Rock.</li>
+                    <li>If you choose Paper, you will win against Rock but lose against Scissors.</li>
+                </ul>
+                <p>The game ends when somebody gets 5 wins. If you want to play again, just click “Play again” button after a game is finished.</p>
+
+                </section>
+
+                <footer class="modal-card-foot columns is-centered">
+                    <button class="button is-success ">Confirm</button>
+                </footer>
+            </div>
+        </div>
+
+        <div id="confirmResults" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <section class="modal-card-body">
+                    <h1 class="title is-1" id="modalResult"></h1>
+                    <button class="button is-success" id="playAgain">Play Again</button>
+                </section>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer section">
+        <p class="is-hidden-mobile">Developed by Jef Ogues</p>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
