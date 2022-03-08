@@ -16,7 +16,7 @@
     <script src="https://kit.fontawesome.com/458e0ca58d.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body id="container">
     <a class="js-modal-trigger howToPlay" data-target="modal-js-example">
         <i class="fas fa-info-circle"></i>
         Help
@@ -26,10 +26,10 @@
         <h2 class="subtitle is-4" id="round">Round 0</h2>
     </header>
 
-    <main class="section is-medium">
-        <section class="columns">
-            <div class="column">
-                <h4 class="title">Player</h4>
+    <main class="section is-medium p-6">
+        <section class="columns is-gapless is-centered">
+            <div class="column is-4">
+                <h4 class="title is-size-1">Player</h4>
                 <div class="columns is-mobile">
                     <a class="column is-one-third userPick " id="rock"> <img src="img/rock.png" alt="rock"/> </a>
                     <a class="column is-one-quarter userPick" id="paper"> <img src="img/paper.png" alt="paper"/> </a>
@@ -37,20 +37,21 @@
                 </div>
             </div>
 
-            <div class="column">
-                <h1 class="title is-3" id="matchFeed">
+            <div class="column is-3 is-flex is-flex-direction-column mt-6 mb-6 is-justify-content-center">
+                <h2 class="title is-1" id="score"> 0 - 0</h2>
+                <h1 class="subtitle is-5 is-spaced" id="matchFeed">
                     Match Start
                 </h1>
-                <h2 class="subtitle is-1" id="score"> 0 - 0</h2>
             </div>
     
-            <div class="column">
-                <h4 class="title">Cpu</h4>
+            <div class="column is-4">
+                <h4 class="title is-size-1 is-hidden-mobile">CPU</h4>
                 <div class="columns is-mobile">
                     <a class="column is-one-third disabled cpuPick" id="cpuRock" disabled> <img src="img/rock.png" alt="rock"/> </a>
                     <a class="column is-one-quarter disabled cpuPick" id="cpuPaper" disabled> <img src="img/paper.png" alt="paper"/> </a>
                     <a class="column is-4 disabled cpuPick" id="cpuScissors" disabled> <img src="img/scissors.png" alt="scissors"/> </a>
                 </div>
+                <h4 class="title is-size-1 is-hidden-tablet">CPU</h4>
             </div>
         </section>
 

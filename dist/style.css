@@ -5,6 +5,8 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: lightcyan;
+    min-height: 100vh;
+    overflow: auto;
 }
 h1,h2 {
     text-align: center;
@@ -16,24 +18,12 @@ header {
 
 main {
     text-align: center;
-    height: 60vh;
+    min-height: 60vh;
 }
 
 .btnContainer{
     display: flex;
     justify-content: center;
-}
-
-button #rock{
-    max-width: 120px;
-}
-
-button #paper{
-    min-width: 100px;
-}
-
-button #scissors{
-    min-width: 100px;
 }
 
 button:focus{
@@ -44,10 +34,16 @@ button:focus{
     background-color: lightblue;
 }
 
+.winnerTag {
+    background-color: gold;
+}
+
 .footer {
     background-color: lightcyan !important;
     text-align: center;
-    height: 20vh;
+    min-height: 20vh;
+    position: sticky;
+    bottom: 0px;
 }
 
 .disabled {

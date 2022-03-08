@@ -7,14 +7,22 @@ roundsPlayed = 0;
 
 function playRound(playerPick, computerPick) {
     roundsPlayed += 1;
+    let pick = document.getElementById(playerPick);
+    let cpuPick = document.getElementById( "cpu" + computerPick.charAt(0).toUpperCase() + computerPick.slice(1))
+    console.log(pick)
+    console.log(cpuPick)
     switch (playerPick.toLowerCase()) {
         case "rock":
             if (computerPick.toLowerCase() === "rock") {
                 return (`Tie Game`)
             } else if (computerPick.toLowerCase() === "paper") {
                 computerScore += 1;
+                cpuPick.classList.remove("activeBtn")
+                cpuPick.classList.add("winnerTag")
                 return (`You Lose `);
             } else if (computerPick.toLowerCase() === "scissors") {
+                pick.classList.remove("activeBtn")
+                pick.classList.add("winnerTag")
                 playerScore += 1;
                 return (`You Win `);
             } else {
@@ -23,11 +31,15 @@ function playRound(playerPick, computerPick) {
 
             case "paper":
                 if (computerPick.toLowerCase() === "rock") {
+                    pick.classList.remove("activeBtn")
+                    pick.classList.add("winnerTag")
                     playerScore += 1;
                     return (`You Win`);
                 } else if (computerPick.toLowerCase() === "paper") {
                     return (`Tie Game`);
                 } else if (computerPick.toLowerCase() === "scissors") {
+                    cpuPick.classList.remove("activeBtn")
+                    cpuPick.classList.add("winnerTag")
                     computerScore += 1;
                     return (`You Lose`);
                 } else {
@@ -36,9 +48,13 @@ function playRound(playerPick, computerPick) {
 
                 case "scissors":
                     if (computerPick.toLowerCase() === "rock") {
+                        cpuPick.classList.remove("activeBtn")
+                        cpuPick.classList.add("winnerTag")
                         computerScore += 1;
                         return (`You Lose`);
                     } else if (computerPick.toLowerCase() === "paper") {
+                        pick.classList.remove("activeBtn")
+                        pick.classList.add("winnerTag")
                         playerScore += 1;
                         return (`You Win`);
                     } else if (computerPick.toLowerCase() === "scissors") {
@@ -54,21 +70,37 @@ function randomPick() {
     let cpuPickRock = document.getElementById("cpuRock");
     let cpuPickPaper = document.getElementById("cpuPaper");
     let cpuPickScissors = document.getElementById("cpuScissors");
+    
     switch (rand) {
         case 1:
             cpuPickPaper.classList.remove("activeBtn");
             cpuPickScissors.classList.remove("activeBtn");
             cpuPickRock.classList.add("activeBtn");
+
+            cpuPickRock.classList.remove("winnerTag")
+            cpuPickPaper.classList.remove("winnerTag");
+            cpuPickScissors.classList.remove("winnerTag");
+
             return "rock";
         case 2:
             cpuPickRock.classList.remove("activeBtn")
             cpuPickScissors.classList.remove("activeBtn")
             cpuPickPaper.classList.add("activeBtn")
+
+            cpuPickRock.classList.remove("winnerTag")
+            cpuPickPaper.classList.remove("winnerTag");
+            cpuPickScissors.classList.remove("winnerTag");
+
             return "paper";
         case 3:
             cpuPickRock.classList.remove("activeBtn");
             cpuPickPaper.classList.remove("activeBtn");
             cpuPickScissors.classList.add("activeBtn");
+
+            cpuPickRock.classList.remove("winnerTag")
+            cpuPickPaper.classList.remove("winnerTag");
+            cpuPickScissors.classList.remove("winnerTag");
+
             return "scissors";
     }
 }
@@ -132,48 +164,47 @@ function resetGame() {
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
     function openModal($el) {
-      $el.classList.add('is-active');
+        $el.classList.add('is-active');
     }
-  
+
     function closeModal($el) {
-      $el.classList.remove('is-active');
+        $el.classList.remove('is-active');
     }
-  
+
     function closeAllModals() {
-      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        (document.querySelectorAll('.modal') || []).forEach(($modal) => {
         closeModal($modal);
-      });
+    });
     }
-  
+
     // Add a click event on buttons to open a specific modal
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-      const modal = $trigger.dataset.target;
-      const $target = document.getElementById(modal);
+        const modal = $trigger.dataset.target;
+        const $target = document.getElementById(modal);
 
-  
-      $trigger.addEventListener('click', () => {
+
+        $trigger.addEventListener('click', () => {
         openModal($target);
-      });
     });
-  
+});
+
     // Add a click event on various child elements to close the parent modal
     (document.querySelectorAll('.modal-close, .modal-card-head .delete, .modal-card-body .button, .modal-card-foot .button') || []).forEach(($close) => {
-      const $target = $close.closest('.modal');
-  
-      $close.addEventListener('click', () => {
-        closeModal($target);
-      });
+        const $target = $close.closest('.modal');
+
+        $close.addEventListener('click', () => {
+            closeModal($target);
     });
-  
+});
+
     // Add a keyboard event to close all modals
     document.addEventListener('keydown', (event) => {
-      const e = event || window.event;
-  
-      if (e.keyCode === 27) { // Escape key
-        closeAllModals();
-      }
+        const e = event || window.event;
+        if (e.keyCode === 27) { // Escape key
+            closeAllModals();
+        }
     });
-  });
+});
 
 
 let rock = document.querySelector('#rock');
@@ -186,6 +217,11 @@ rock.addEventListener('click', () => {
     rock.classList.add("activeBtn")
     paper.classList.remove("activeBtn");
     scissors.classList.remove("activeBtn");
+
+    rock.classList.remove("winnerTag");
+    paper.classList.remove("winnerTag");
+    scissors.classList.remove("winnerTag");
+
     game("rock");
 });
 
@@ -193,6 +229,10 @@ paper.addEventListener('click', () => {
     rock.classList.remove("activeBtn")
     paper.classList.add("activeBtn");
     scissors.classList.remove("activeBtn");
+
+    rock.classList.remove("winnerTag");
+    paper.classList.remove("winnerTag");
+    scissors.classList.remove("winnerTag");
     game("paper");
 })
 
@@ -200,6 +240,10 @@ scissors.addEventListener('click', () => {
     rock.classList.remove("activeBtn")
     paper.classList.remove("activeBtn");
     scissors.classList.add("activeBtn");
+
+    rock.classList.remove("winnerTag");
+    paper.classList.remove("winnerTag");
+    scissors.classList.remove("winnerTag");
     game("scissors");
 })
 
